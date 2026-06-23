@@ -82,3 +82,13 @@ Clear npm cache (optional):
 - Peer dependency sanity check:
   - npm ls eslint prettier
     - For visibility, not validation.
+
+## 05. Excludes
+
+Child .gitignore rules from multiple React projects cascade and override parent rules.
+
+**Solution**
+
+Use `.git/info/exclude` to block nested `.gitignore` files from overriding config.
+Instead of fighting scattered `.gitignore` files, we placed global rules in `.git/info/exclude`.
+This file is local only and never committed, so while stable and effective, somewhat inflexible.
